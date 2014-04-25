@@ -18,5 +18,11 @@ public class Startup {
         TextFileReader tfr = new TextFileReader();
         File file = new File("src" + File.separatorChar + "Contacts.txt");
         tfr.readTextFile(file);
+        
+        //System.out.print(tfr.getText());
+        
+        for(String s : tfr.getText()){
+            System.out.println(s);
+        }
     }
 }

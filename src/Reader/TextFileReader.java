@@ -9,6 +9,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -16,6 +18,16 @@ import java.io.IOException;
  */
 public class TextFileReader implements FileReaderStrategy {
 
+    private List<String> text = new ArrayList<String>();
+
+    public List<String> getText() {
+        return text;
+    }
+
+    public void setText(List<String> text) {
+        this.text = text;
+    }
+    
     @Override
     public final void readTextFile(final File file) throws Exception {
         if (file == null || !file.exists()) {
@@ -26,7 +38,9 @@ public class TextFileReader implements FileReaderStrategy {
             reader = new BufferedReader(new FileReader(file));
             String line = reader.readLine();
             while (line != null) {
-                System.out.println(line);
+                
+                getText().add(line);
+                //System.out.println(line);
                 line = reader.readLine();
 
             }
