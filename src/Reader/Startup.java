@@ -14,15 +14,21 @@ import java.io.IOException;
  * @author dbell17
  */
 public class Startup {
+    
     public static void main(String[] args) throws Exception {
-        TextFileReader tfr = new TextFileReader();
-        File file = new File("src" + File.separatorChar + "Contacts.txt");
-        tfr.readTextFile(file);
+        File reader = new File("src" + File.separatorChar + "Contacts.txt");
+        TextFileReader tfr = new TextFileReader(reader);
+        TextFileWriter tfr1 = new TextFileWriter();
+        
+        File writer = new File("src" + File.separatorChar + "Contacts.txt");
+        //tfr1.writeTextFile(file1);
+        //tfr.readTextFile(reader);
+        tfr1.writeTextFile(tfr, writer);
         
         //System.out.print(tfr.getText());
         
-        for(String s : tfr.getText()){
-            System.out.println(s);
-        }
+//        for(String s : tfr.getText()){
+//            System.out.println(s);
+//        }
     }
 }

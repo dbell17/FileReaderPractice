@@ -19,6 +19,19 @@ import java.util.List;
 public class TextFileReader implements FileReaderStrategy {
 
     private List<String> text = new ArrayList<String>();
+    private File file;
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public TextFileReader(File file) {
+        setFile(file);
+    }
 
     public List<String> getText() {
         return text;
